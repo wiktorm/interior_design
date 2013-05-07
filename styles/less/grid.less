@@ -3,9 +3,14 @@
  */
 
 /* width of main container */
-@bodyWidth:  900px ;
+@bodyWidth:  900px;
 /* Set the spacing between your grid items. */
-@gutter:  10px ;
+@gutter:  10px;
+
+/* screen sizes */
+@screenDesk: @bodyWidth + @gutter;
+@screenLap: 580px;
+@screenPalm: 320px;
 
 
 
@@ -62,6 +67,35 @@
 	        box-sizing: border-box;
 }
 
+
 .thumb {
 	width: 33.33%;
+}
+
+@media (max-width: @screenDesk) {
+	.container {
+		width: @screenLap;
+	}
+	.columns {
+		width: @screenLap;
+	}
+	.thumb {
+		width: 50%;
+	}
+}
+
+@media (max-width: @screenLap) {
+	.container {
+		width: 90%;
+	}
+	.columns {
+		width: 100%;
+	}
+	.thumb {
+		width: 100%;
+		
+		img {
+			width: 100%;
+		}
+	}
 }
