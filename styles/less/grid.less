@@ -41,18 +41,31 @@
 	overflow: hidden;
 	
 	/* animation */
-	-webkit-transition: 0.16s;
-	   -moz-transition: 0.16s;
-	        transition: 0.16s;
+	-webkit-transition: 0.46s;
+	   -moz-transition: 0.46s;
+	        transition: 0.46s;
 	margin: 20px 10px 10px 10px;
 	padding: 0;
 	border: 5px #FFF solid;
+	
+	.extras {
+		opacity: 0.3;
+		/* animation */
+			-webkit-transition: 0.36s;
+		   -moz-transition: 0.36s;
+		        transition: 0.36s;
+	}
 }
+
 
 .thumb-frame:hover {
 	box-shadow: 0px 0px 3px #222;
 	padding: 17px 5px 7px 5px;
 	margin: 3px 5px;
+
+	.extras {
+		opacity: 1.0;
+	}
 }
 
 .column {
