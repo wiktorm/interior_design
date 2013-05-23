@@ -1,0 +1,36 @@
+body {
+	background: url("../gfx/bg.png") repeat-x top left;
+}
+
+.topbar {
+	// stick to top
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	
+	// decoration
+	background-color: @lightGray;
+	box-shadow: 2px 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/**
+ *
+ */
+.navigation {
+	list-style: none;
+	margin: 0;
+	padding: 4px 0;
+	width: @bodyWidth;
+	margin: 0 auto;
+
+	li {
+		display: inline-block;
+		text-shadow: 0 1px 0 #fff;
+		padding: 2px 10px;
+	}
+}
+
+.footer {
+	padding: @gutter 0 3*@gutter 0;
+}
