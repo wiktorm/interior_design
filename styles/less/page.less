@@ -1,5 +1,8 @@
 body {
-	background: url("../gfx/bg.png") repeat-x top left;
+//	background: url("../gfx/bg.png") repeat-x top left;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 .topbar {
@@ -10,8 +13,9 @@ body {
 	left: 0;
 	
 	// decoration
-	background-color: @lightGray;
-	box-shadow: 2px 0 6px rgba(0, 0, 0, 0.5);
+//	background-color: @lightGray;
+	background-color: #FFF;
+//	box-shadow: 2px 0 6px rgba(0, 0, 0, 0.5);
 }
 
 /**
@@ -33,4 +37,26 @@ body {
 
 .footer {
 	padding: @gutter 0 3*@gutter 0;
+	background-color: @lightGray;
+	color: rgba(0,0,0,0.6);
+}
+
+// Gallery header
+.caption {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 18px;
+	font-weight: normal;
+	margin: @gutter 0 @gutter/2 0;
+	text-align: center;
+}
+// Gallery header
+.subcaption {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0 0 @gutter 0;
+	text-align: center;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-weight: normal;
 }
