@@ -9,6 +9,7 @@ body {
 .topbar {
 	// stick to top
 	position: fixed;
+	z-index: 100;
 	width: 100%;
 	top: 0;
 	left: 0;
@@ -48,7 +49,7 @@ body {
 }
 
 .footer {
-	padding: 2*@gutter 0 2*@gutter 0;
+	padding: @gutter 0 @gutter 0;
 	background-color: @reniasGreen;
 	// color: rgba(0,0,0,0.6);
 	//background-color: #1D1D1D;
@@ -76,7 +77,7 @@ body {
 	font-size: 20px;
 	text-transform: uppercase;
 	color: #97C54B;
-	margin: 24px 0;
+	margin: 14px 0;
 	font-weight: bold;
 }
 
@@ -123,6 +124,7 @@ body {
 
 .arrow_box {
 	position: relative;
+	z-index: 10;
 }
 .arrow_box:after, .arrow_box:before {
 	top: 100%;
@@ -137,9 +139,9 @@ body {
 .arrow_box:after {
 	border-color: rgba(255, 255, 255, 0);
 	border-top-color: #FFF;
-	border-width: 60px;
+	border-width: 55px;
 	left: 10%;
-	margin-left: -60px;
+	margin-left: -55px;
 }
 .arrow_box:before {
 	border-color: rgba(194, 225, 245, 0);
