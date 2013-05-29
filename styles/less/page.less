@@ -3,6 +3,7 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	line-height: 20px;
+	color: #505050;
 }
 
 .topbar {
@@ -16,6 +17,17 @@ body {
 //	background-color: @lightGray;
 	background-color: #FFF;
 	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
+}
+.hero {
+	
+	h2 {
+		font-variant: small-caps;
+		font-size: 32px;
+		font-weight: normal;
+	}
+	p {
+		.subcaption;
+	}
 }
 
 /**
@@ -36,12 +48,38 @@ body {
 }
 
 .footer {
-	padding: @gutter 0 @gutter 0;
-	// background-color: @lightGray;
+	padding: 2*@gutter 0 2*@gutter 0;
+	background-color: @reniasGreen;
 	// color: rgba(0,0,0,0.6);
-	background-color: rgb(182,225,137);
-	color: rgb(0,0,0);
+	//background-color: #1D1D1D;
+	color: #505050;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.7);
+	
+	background-image: linear-gradient(bottom, #97C54B 99%, rgb(51,162,0) 85%);
+	background-image: -o-linear-gradient(bottom, #97C54B 99%, rgb(51,162,0) 85%);
+	background-image: -moz-linear-gradient(bottom, #97C54B 99%, rgb(51,162,0) 85%);
+	background-image: -webkit-linear-gradient(bottom, #97C54B 99%, rgb(51,162,0) 85%);
+	background-image: -ms-linear-gradient(bottom, #97C54B 99%, rgb(51,162,0) 85%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.99, #97C54B), color-stop(0.96, rgb(177, 218, 118)));
+	
+	.name {
+		font-variant: small-caps;
+		font-size: 16px;
+	}
 }
+
+.footer-logo {
+	//text-shadow: 0 0 10px rgba(0,0,0, 0.4);
+	text-shadow: 0 1px 0 rgba(255,255,255,.4), 0 0 30px rgba(0,0,0,.15);
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #97C54B;
+	margin: 24px 0;
+	font-weight: bold;
+}
+
 
 // Gallery header
 .caption {
@@ -80,4 +118,33 @@ body {
 	font-family: Georgia, serif;
 	font-style: italic;
 	font-weight: normal;
+}
+
+
+.arrow_box {
+	position: relative;
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #FFF;
+	border-width: 60px;
+	left: 10%;
+	margin-left: -60px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: #c2e1f5;
+	border-width: 0px;
+	left: 10%;
+	margin-left: -36px;
 }
