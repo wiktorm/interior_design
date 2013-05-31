@@ -3,20 +3,22 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	line-height: 20px;
-	color: #505050;
+	color: #303030;
 }
 
 .topbar {
 	// stick to top
 	position: fixed;
+	z-index: 1000;
 	width: 100%;
+	height: 80px;
 	top: 0;
 	left: 0;
 	
 	// decoration
 //	background-color: @lightGray;
 	background-color: #FFF;
-	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 .hero {
 	
@@ -28,6 +30,18 @@ body {
 	p {
 		.subcaption;
 	}
+}
+
+h2 {
+	font-family: 'HelveticaNeue-Light', Helvetica, Arial, sans-serif;;
+	font-size: 24px;
+	letter-spacing: 1px;
+}
+.columns p {
+	font-family: 'HelveticaNeue-Light', Helvetica, Arial, sans-serif;;
+	font-size: 16px;
+	letter-spacing: 0px;
+	line-height: 24px;
 }
 
 /**
@@ -48,7 +62,7 @@ body {
 }
 
 .footer {
-	padding: 2*@gutter 0 2*@gutter 0;
+	padding: @gutter 0 0 0;
 	background-color: @reniasGreen;
 	// color: rgba(0,0,0,0.6);
 	//background-color: #1D1D1D;
@@ -81,6 +95,9 @@ body {
 }
 
 
+
+.X {
+	
 // Gallery header
 .caption {
 	text-transform: uppercase;
@@ -109,6 +126,8 @@ body {
 .gallery-item:hover {
 	//background-color: @lightGray;
 }
+
+}
 // Gallery header
 .subcaption {
 	font-size: 16px;
@@ -124,7 +143,7 @@ body {
 .arrow_box {
 	position: relative;
 }
-.arrow_box:after, .arrow_box:before {
+.arrow_box:after {
 	top: 100%;
 	border: solid transparent;
 	content: " ";
@@ -138,13 +157,6 @@ body {
 	border-color: rgba(255, 255, 255, 0);
 	border-top-color: #FFF;
 	border-width: 60px;
-	left: 10%;
+	left: 90%;
 	margin-left: -60px;
-}
-.arrow_box:before {
-	border-color: rgba(194, 225, 245, 0);
-	border-top-color: #c2e1f5;
-	border-width: 0px;
-	left: 10%;
-	margin-left: -36px;
 }
