@@ -1,0 +1,11 @@
+# IDE ignore files.
+/.buildpath
+/.project
+/.settings
+*.swp
+*~
+
+##
+# Build
+build.properties
+/out
