@@ -1,0 +1,129 @@
+<project name="Projektowanie Wnętrz - Renata Kowalczuk" default="help" basedir=".">
+
+	<!-- optional environmental settings -->
+	<property file="build.properties" />
+	
+	<!-- setup default values -->
+	<property name="dir.base" location="." />
+	<property name="dir.build" location="${dir.base}/out" />
+	
+	<property name="cmd.recess" value="recess" />
+	<property name="cmd.php" value="php" />
+
+
+
+	<!--
+	Main targets:
+	 - build
+	 - clean
+	 - validate (todo)
+	-->
+
+	<target name="build"
+		description="Builds Website."
+		depends="clean, build.css.compress, build.html, build.html.assets"
+	>
+	</target>
+
+	<target name="clean">
+		<echo level="info">Cleaning build folder</echo>
+		<delete dir="${dir.build}">
+		</delete>
+	</target>
+
+
+
+	<!--
+	CSS targets
+	 - build.css.compress
+	 - build.css.compile (todo)
+	 - build.css.gfx
+	 - build.css.watch
+	-->
+
+	<!-- Compressed, production ready CSS -->
+	<target name="build.css.compress"
+		depends="build.css.gfx"
+		description="Builds CSS file(s) and copy assets."
+	>
+		<echo level="info">Building ${dir.build}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build}/static/styles/css/main.css">
+			<arg line="--compress" />
+			<arg line="${dir.base}/styles/less/main.less" />
+		</exec>
+	</target>
+	
+	<target name="build.css.compile"
+		depends="build.css.gfx"
+		description="Builds CSS file(s) and copy assets."
+	>
+		<echo level="info">Building ${dir.build}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build}/static/styles/css/main.css">
+			<arg line="--compress" />
+			<arg line="${dir.base}/styles/less/main.less" />
+		</exec>
+	</target>
+
+	<target name="build.css.gfx"
+		description="Copy css assets to build folder"
+	>
+		<echo level="info">Copying CSS images assets to build folder.</echo>
+		<mkdir dir="${dir.build}/static/styles/gfx/" />
+		<copy todir="${dir.build}/static/styles/gfx/">
+			<fileset dir="${dir.base}/styles/gfx/">
+				<include name="**.png" />
+				<include name="**.gif" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.css.watch"
+		description="Prints command to run for watching CSS changes."
+	>
+		<echo>To watch CSS run following command</echo>
+		<echo>${cmd.recess} ${dir.base}/less/main.less:${dir.build}/static/styles/css/main.css --watch ${dir.base}/less/</echo>
+	</target>
+
+
+
+	<!--
+	HTML
+	 - build.html
+	           generate production HTML
+	 - build.html.assets
+	           copy all assets used on the page (images, PDFs, ...)
+	-->
+
+	<target name="build.html">
+		<copy todir="${dir.build}">
+			<fileset dir="${dir.base}">
+				<include name="index.html" />
+			</fileset>
+		</copy>
+
+		<exec executable="${cmd.php}">
+			<arg line="src/build-html.php" />
+			<arg line="${dir.build}/index.html" />
+		</exec>
+	</target>
+
+	<target name="build.html.assets">
+		<copy todir="${dir.build}">
+			<fileset dir="${dir.base}">
+				<include name="images/index/*" />
+				<include name="logo.png" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Help Message -->
+	<target name="help"
+		description="Prints help"
+	>
+		<exec executable="ant">
+			<arg value="-p" />
+		</exec>
+	</target>
+</project>
