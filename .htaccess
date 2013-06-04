@@ -1,0 +1,17 @@
+##  Can be commented out if causes errors, see notes above.
+Options +FollowSymLinks -Indexes
+
+#  mod_rewrite in use
+
+RewriteEngine On
+
+########## Begin - Additional rules
+# Protect files starting with "."
+<Files ~ "^\.">
+Order allow,deny
+Deny from all
+Satisfy all
+</Files>
+
+# Protect directories used by Eclipse, CVS, Subversion and Git
+RewriteRule "(^|/)(CVS|\.svn|\.git|\.settings)/" - [F] 
