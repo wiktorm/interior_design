@@ -11,5 +11,43 @@
 @import "page.less";
 @import "grid.less";
 
+.gallery {
+	background: #E3E3E3 url("../gfx/gallery-bg4.png") repeat 0 0;
+	padding: 2*@gutter @gutter/2 0 0; // I smell some problems with IE :(
+	box-shadow: inset 5px -1px 4px rgba(0,0,0,0.3);
+}
+.gallery-item img {
+	box-shadow: 0px 0px 4px #000;
+	border: 1px solid #5d5d5d;
+}
+.gallery-item h4 {
+	z-index: 10;
+	display: inline;
+	background-color: #FFF;
+	box-shadow: 1px 1px 4px rgba(0,0,0, 0.8);
+	padding: 6px 10px 6px 10px;
+	margin: 0 0 0 20px;
+	color: #000;
+
+	letter-spacing: 1px;
+	font-size: 18px;
+	font-weight: normal;
+	
+	position: relative;
+	top: -18px;
+	
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+
+.gallery-item:hover h4 {
+	top: -20px;
+	box-shadow: 1px 2px 4px rgba(0,0,0, 0.8);
+	-webkit-transform: rotate(10deg);
+	   -moz-transform: rotate(10deg);
+	        transform: rotate(10deg);
+}
+
 /* shame.css - http://csswizardry.com/2013/04/shame-css/ */
 @import "shame.less";
