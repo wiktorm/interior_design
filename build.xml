@@ -5,7 +5,8 @@
 	
 	<!-- setup default values -->
 	<property name="dir.base" location="." />
-	<property name="dir.build" location="${dir.base}/out" />
+	<property name="dir.build" location="${dir.base}/build" />
+	<property name="dir.build.out" location="${dir.build}/out" />
 	
 	<property name="cmd.recess" value="recess" />
 	<property name="cmd.php" value="php" />
@@ -15,14 +16,37 @@
 	<!--
 	Main targets:
 	 - build
+	 - deploy
 	 - clean
 	 - validate (todo)
 	-->
 
 	<target name="build"
 		description="Builds Website."
-		depends="clean, build.css.compress, build.html, build.html.assets"
+		depends="clean"
 	>
+		<parallel>
+			<antcall target="build.css.compress" />
+			<antcall target="build.html" />
+			<antcall target="build.html.assets" />
+		</parallel>
+
+		<tar destfile="${dir.build}/renata-kowalczuk.eu.tgz"
+			basedir="${dir.build.out}"
+			compression="gzip"
+		/>
+	</target>
+
+	<target name="deploy">
+		<scp file="${dir.out}/renata-kowalczuk.eu.tgz"
+			todir="${deploy.user}@${deploy.host}:${deploy.target}"
+			keyfile="${deploy.keyfile}"
+		/>
+		<sshexec host="${deploy.host}"
+			username="${deploy.user}"
+			keyfile="${deploy.keyfile}"
+			command="tar xzf ${deploy.target}/renata-kowalczuk.eu.tgz -C ${deploy.target}/public"
+		/>
 	</target>
 
 	<target name="clean">
@@ -46,9 +70,9 @@
 		depends="build.css.gfx"
 		description="Builds CSS file(s) and copy assets."
 	>
-		<echo level="info">Building ${dir.build}/static/styles/css/main.css</echo>
-		<mkdir dir="${dir.build}/static/styles/css/" />
-		<exec executable="${cmd.recess}" output="${dir.build}/static/styles/css/main.css">
+		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build.out}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build.out}/static/styles/css/main.css">
 			<arg line="--compress" />
 			<arg line="${dir.base}/styles/less/main.less" />
 		</exec>
@@ -58,9 +82,9 @@
 		depends="build.css.gfx"
 		description="Builds CSS file(s) and copy assets."
 	>
-		<echo level="info">Building ${dir.build}/static/styles/css/main.css</echo>
-		<mkdir dir="${dir.build}/static/styles/css/" />
-		<exec executable="${cmd.recess}" output="${dir.build}/static/styles/css/main.css">
+		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build.out}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build.out}/static/styles/css/main.css">
 			<arg line="--compress" />
 			<arg line="${dir.base}/styles/less/main.less" />
 		</exec>
@@ -70,8 +94,8 @@
 		description="Copy css assets to build folder"
 	>
 		<echo level="info">Copying CSS images assets to build folder.</echo>
-		<mkdir dir="${dir.build}/static/styles/gfx/" />
-		<copy todir="${dir.build}/static/styles/gfx/">
+		<mkdir dir="${dir.build.out}/static/styles/gfx/" />
+		<copy todir="${dir.build.out}/static/styles/gfx/">
 			<fileset dir="${dir.base}/styles/gfx/">
 				<include name="**.png" />
 				<include name="**.gif" />
@@ -83,7 +107,7 @@
 		description="Prints command to run for watching CSS changes."
 	>
 		<echo>To watch CSS run following command</echo>
-		<echo>${cmd.recess} ${dir.base}/less/main.less:${dir.build}/static/styles/css/main.css --watch ${dir.base}/less/</echo>
+		<echo>${cmd.recess} ${dir.base}/less/main.less:${dir.build.out}/static/styles/css/main.css --watch ${dir.base}/less/</echo>
 	</target>
 
 
@@ -97,7 +121,7 @@
 	-->
 
 	<target name="build.html">
-		<copy todir="${dir.build}">
+		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
 				<include name="index.html" />
 			</fileset>
@@ -105,12 +129,12 @@
 
 		<exec executable="${cmd.php}">
 			<arg line="src/build-html.php" />
-			<arg line="${dir.build}/index.html" />
+			<arg line="${dir.build.out}/index.html" />
 		</exec>
 	</target>
 
 	<target name="build.html.assets">
-		<copy todir="${dir.build}">
+		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
 				<include name="images/index/*" />
 				<include name="logo.png" />
