@@ -6,7 +6,18 @@
 *~
 
 ##
+# Composer
+/composer.lock
+/composer.phar
+/vendor
+
+
+##
 # Build
 build.properties
-!build.example.properties
 /build
+
+
+## 
+# sGallery
+/sgallery.properties
