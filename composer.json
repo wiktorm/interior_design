@@ -1,0 +1,12 @@
+{
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/hoborglabs/sgallery"
+		}
+	],
+
+	"require": {
+		"hoborglabs/sgallery": ">=0.3"
+	}
+}

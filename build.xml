@@ -29,6 +29,7 @@
 			<antcall target="build.css.compress" />
 			<antcall target="build.html" />
 			<antcall target="build.html.assets" />
+			<antcall target="build.html.gallery" />
 		</parallel>
 
 		<tar destfile="${dir.build}/renata-kowalczuk.eu.tgz"
@@ -141,6 +142,13 @@
 				<include name="images/logo.png" />
 			</fileset>
 		</copy>
+	</target>
+
+	<target name="build.html.gallery">
+		<exec dir="${dir.base}" command="php">
+			<arg value="sgallery.php"/>
+			<arg value="update"/>
+		</exec>
 	</target>
 
 	<!-- Help Message -->

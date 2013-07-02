@@ -1,0 +1,50 @@
+<div class="topbar">
+	<div class="container">
+	<img class="logo" src="images/logo.png" />
+	<ul class="breadcrumb">
+		{{#slugs}}
+		<li class="{{class}}">
+			{{# href }}<a href="/albums{{ href }}">{{/href}}
+				{{ text }}
+			{{# href }}</a> <span class="divider">/</span>{{/href}}
+		</li>
+		{{/slugs}}
+	</ul>
+	</div>
+</div>
+
+<div class="columns gallery">
+	<div id="album" class="">
+
+		<h2>{{ i18n.album }} - {{ name }}</h2>
+		<p class="lead">{{ meta }}</p>
+
+
+		{{#has_albums}}
+		<h3>{{ i18n.albums }}</h3>
+		<div>
+			<!-- 
+			{{#albums}}
+				--><div class="column one-third">
+					<div class="gallery-item">
+						<a href="/albums/{{ slug }}"><img src="{{ cover }}" /></a>
+						<h4>{{ name }}</h4>
+					</div>
+				</div><!--
+			{{/albums}}
+			-->
+		</div>
+		{{/has_albums}}
+
+		{{#has_photos}}
+		<h3>{{ i18n.photos }}</h3>
+		<div>
+			<ul class="grid" id="photos">
+			</ul>
+			<div class="well" style="display:none;">
+				<span>Loading...</span>
+			</div>
+		</div>
+		{{/has_photos}}
+	</div>
+</div>
