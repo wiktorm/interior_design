@@ -1,0 +1,147 @@
+/**
+ * Variables
+ */
+
+/* width of main container */
+@bodyWidth:  900px;
+/* Set the spacing between your grid items. */
+@gutter:  20px;
+
+/* screen sizes */
+@screenDesk: @bodyWidth + @gutter;
+@screenLap: 580px;
+@screenPalm: 320px;
+
+
+
+.container {
+	width: @bodyWidth;
+	margin: 0 auto;
+	//background-color: #CCC;
+}
+
+/**
+ * Set the spacing between your grid items.
+ */ 
+.columns {
+	list-style: none; /* [1] */
+	margin: 0; /* [2] */
+	padding: 0; /* [2] */
+	margin-left: -@gutter/2; /* [3] */
+	width: 100%;
+}
+
+/**
+ * overflow: hidden - Thanks Csswizadry! If you want to know more check these links:
+ * http://www.stubbornella.org/content/2009/07/23/overflow-a-secret-benefit/
+ */
+.thumb-frame {
+	box-shadow: 0px 0px 2px #555;
+	background-color: #FFF;
+	/* min-height: 120px; */
+	overflow: hidden;
+	
+	/* animation */
+	-webkit-transition: 0.46s;
+	   -moz-transition: 0.46s;
+	        transition: 0.46s;
+	margin: 20px 10px 10px 10px;
+	padding: 0;
+	border: 5px #FFF solid;
+	
+	.extras {
+		opacity: 0.3;
+		/* animation */
+			-webkit-transition: 0.36s;
+		   -moz-transition: 0.36s;
+		        transition: 0.36s;
+	}
+}
+
+
+.thumb-frame:hover {
+	box-shadow: 0px 0px 3px #222;
+	padding: 17px 5px 7px 5px;
+	margin: 3px 5px;
+
+	.extras {
+		opacity: 1.0;
+	}
+}
+
+.column {
+	display: inline-block; /* Cause columns to stack side-by-side. */
+	padding: 0px 0px @gutter @gutter; /* Space columns apart. */
+	vertical-align: top; /* Align columns to the tops of each other. */
+	width: 100%; /* Full-width unless told to behave otherwise. */
+	
+	/* Required to combine fluid widths and fixed gutters. */
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.column_np {
+	display: inline-block; /* Cause columns to stack side-by-side. */
+	padding: 0px 0px 0px @gutter; /* Space columns apart. */
+	vertical-align: top; /* Align columns to the tops of each other. */
+	width: 100%; /* Full-width unless told to behave otherwise. */
+	
+	/* Required to combine fluid widths and fixed gutters. */
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+// columns definitions
+.one-half {
+	width: 50%;
+}
+.one-third {
+	width: 33.33%;
+}
+.one-fourth {
+	width: 25%;
+}
+// twos
+.two-thirds {
+	width: 66.66%;
+}
+
+
+.thumb {
+	width: 33.33%;
+}
+
+@media (max-width: @screenDesk) {
+	.container {
+		width: @screenLap;
+	}
+	.columns {
+	}
+	.thumb {
+		width: 50%;
+	}
+	.one-third {
+		width: 50%
+	}
+}
+
+@media (max-width: @screenLap) {
+	.container {
+		width: 90%;
+	}
+	.columns {
+		width: 100%;
+	}
+	.thumb {
+		width: 100%;
+		
+		img {
+			width: 100%;
+		}
+	}
+	.one-third {
+		width: 100%
+	}
+}
