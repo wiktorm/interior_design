@@ -2,15 +2,25 @@
 
 	<!-- optional environmental settings -->
 	<property file="build.properties" />
-	
+
 	<!-- setup default values -->
 	<property name="dir.base" location="." />
 	<property name="dir.build" location="${dir.base}/build" />
 	<property name="dir.build.out" location="${dir.build}/out" />
-	
+
 	<property name="cmd.recess" value="recess" />
 	<property name="cmd.php" value="php" />
 
+	<!-- scp or ftp -->
+	<property name="use.scp" value="true" />
+	<property name="use.ftp" value="false" />
+
+	<!-- Deployment properties:
+		deploy.target
+		deploy.host
+		deploy.user
+		deploy.password
+	-->
 
 
 	<!--
@@ -37,7 +47,28 @@
 		/>
 	</target>
 
-	<target name="deploy">
+	<target name="info"
+		description="Print information about deployment target"
+	>
+		<echo message="Will deploy to ${deploy.host}:${deploy.target}"/>
+	</target>
+
+	<target name="deploy"
+		description="Deploys the generated website to the remote server."
+		depends="deploy-scp,deploy-ftp"
+	/>
+
+	<target name="deploy-clean"
+		description="Cleans the remote server."
+		depends="deploy-clean-ftp"
+	/>
+
+	<target name="deploy-raw"
+		description="Deploys RAW website to the remote server."
+		depends="deploy-raw-ftp"
+	/>
+
+	<target name="deploy-scp" if="${use.scp}">
 		<scp file="${dir.out}/renata-kowalczuk.eu.tgz"
 			todir="${deploy.user}@${deploy.host}:${deploy.target}"
 			keyfile="${deploy.keyfile}"
@@ -47,6 +78,67 @@
 			keyfile="${deploy.keyfile}"
 			command="tar xzf ${deploy.target}/renata-kowalczuk.eu.tgz -C ${deploy.target}/public"
 		/>
+	</target>
+
+	<target name="deploy-ftp" if="${use.ftp}">
+		<echo message="Deployment to ${deploy.host}:${deploy.target}"/>
+		<ftp server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+			depends="yes"
+		>
+			<fileset dir="${dir.build.out}">
+				<include name="**"/>
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="deploy-clean-ftp" if="${use.ftp}">
+		<echo message="Cleaning ${deploy.host}:${deploy.target}"/>
+		<ftp action="del"
+			server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+		>
+			<fileset>
+				<include name="**"/>
+			</fileset>
+		</ftp>
+		<ftp action="rmdir"
+			server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+		>
+			<fileset>
+				<include name="**"/>
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="deploy-raw-ftp" if="${use.ftp}">
+		<echo message="RAW deployment to ${deploy.host}:${deploy.target}"/>
+		<ftp server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+			depends="yes"
+		>
+			<fileset dir=".">
+				<exclude name="build/**"/>
+				<exclude name="src/**"/>
+				<include name="**/*.html"/>
+				<include name="**/*.js"/>
+				<include name="**/*.css"/>
+				<include name="**/*.less"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.png"/>
+				<include name="favicon.ico" />
+				<include name=".htaccess" />
+			</fileset>
+		</ftp>
 	</target>
 
 	<target name="clean">
@@ -77,7 +169,7 @@
 			<arg line="${dir.base}/styles/less/main.less" />
 		</exec>
 	</target>
-	
+
 	<target name="build.css.compile"
 		depends="build.css.gfx"
 		description="Builds CSS file(s) and copy assets."
@@ -139,6 +231,8 @@
 			<fileset dir="${dir.base}">
 				<include name="images/index/*" />
 				<include name="images/logo.png" />
+				<include name="favicon.ico" />
+				<include name=".htaccess" />
 			</fileset>
 		</copy>
 	</target>
