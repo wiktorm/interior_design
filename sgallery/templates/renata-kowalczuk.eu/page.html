@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{{page.title}}</title>
+	<link rel="stylesheet" type="text/css" media="all" href="/static/styles/hoborglabs/css/main.css">
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+</head>
+<body>
+
+	{{{ body }}}
+	
+	<div class="container">
+		<div class="page-footer">
+			copyright 2012 - Wojtek Olędzki.
+			<span class="pull-right">
+				<a href="http://hoborglabs.com">Hoborglabs</a>
+			</span>
+		</div>
+	</div>
+	
+	<div id="overlay" class="modal-backdrop fade">
+		<div class="modal-panel" data-name="help">
+			<div class="modal">
+				<h3 class="modal-header">Help</h3>
+				<div class="modal-body">
+					<ul>
+						<li><span>?</span> - Shows this help.</li>
+						<li><span>esc</span> - Closes windows.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-panel" data-name="preview">
+	
+			<div id="myCarousel" class="carousel slide">
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item" id="img-preview">
+						<img class="photo-preview" src="" />
+						<p class="photo-message" style="display: none;">Loading ...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		window.SG = {};
+		window.SG.config = {{{ page.config }}};
+	</script>
+	<script src="/static/scripts/hoborglabs/app.js" type="text/javascript"></script>
+</body>
+</html>
