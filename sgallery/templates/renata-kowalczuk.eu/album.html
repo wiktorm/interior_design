@@ -1,4 +1,6 @@
 <div class="topbar">
+	<div class="container">
+	<img class="logo" src="images/logo.png" />
 	<ul class="breadcrumb">
 		{{#slugs}}
 		<li class="{{class}}">
@@ -8,26 +10,29 @@
 		</li>
 		{{/slugs}}
 	</ul>
+	</div>
 </div>
-<div class="container">
+
+<div class="columns gallery">
 	<div id="album" class="">
 
 		<h2>{{ i18n.album }} - {{ name }}</h2>
 		<p class="lead">{{ meta }}</p>
 
+
 		{{#has_albums}}
 		<h3>{{ i18n.albums }}</h3>
 		<div>
-			<ul class="grid"><!-- 
+			<!-- 
 			{{#albums}}
-				--><li class="grid-item grid-media">
-					<div class="album">
+				--><div class="column one-third">
+					<div class="gallery-item">
 						<a href="/albums/{{ slug }}"><img src="{{ cover }}" /></a>
 						<h4>{{ name }}</h4>
 					</div>
-				</li><!--
+				</div><!--
 			{{/albums}}
-			--></ul>
+			-->
 		</div>
 		{{/has_albums}}
 

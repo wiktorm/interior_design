@@ -7,6 +7,6 @@
 	],
 
 	"require": {
-		"hoborglabs/sgallery": "dev-master"
+		"hoborglabs/sgallery": ">=0.3"
 	}
 }
