@@ -138,7 +138,7 @@
 		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
 				<include name="images/index/*" />
-				<include name="logo.png" />
+				<include name="images/logo.png" />
 			</fileset>
 		</copy>
 	</target>
