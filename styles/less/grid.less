@@ -81,18 +81,6 @@
 	        box-sizing: border-box;
 }
 
-.column_np {
-	display: inline-block; /* Cause columns to stack side-by-side. */
-	padding: 0px 0px 0px @gutter; /* Space columns apart. */
-	vertical-align: top; /* Align columns to the tops of each other. */
-	width: 100%; /* Full-width unless told to behave otherwise. */
-	
-	/* Required to combine fluid widths and fixed gutters. */
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-}
-
 // columns definitions
 .one-half {
 	width: 50%;
@@ -125,6 +113,9 @@
 	.one-third {
 		width: 50%
 	}
+	.one-fourth {
+		width: 33.33%;
+	}
 }
 
 @media (max-width: @screenLap) {
@@ -143,5 +134,14 @@
 	}
 	.one-third {
 		width: 100%
+	}
+	.one-fourth {
+		width: 50%;
+	}
+}
+
+@media (max-width: @screenPalm) {
+	.one-fourth {
+		width: 100%;
 	}
 }
