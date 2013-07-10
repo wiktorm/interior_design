@@ -10,6 +10,9 @@
 	
 	<property name="cmd.recess" value="recess" />
 	<property name="cmd.php" value="php" />
+	<property name="cmd.composer" value="${dir.base}/composer.phar" />
+
+	<available file="${cmd.composer}" property="composer.present" />
 
 
 
@@ -54,6 +57,18 @@
 		<echo level="info">Cleaning build folder</echo>
 		<delete dir="${dir.build}">
 		</delete>
+	</target>
+
+	<target name="validate" 
+		description="Validates project."
+		depends="-install-composer"
+	>
+		<!-- get dependencies -->
+		<exec executable="php" failonerror="true">
+			<arg line="${cmd.composer}" />
+			<arg line="update" />
+			<arg line="--no-dev" />
+		</exec>
 	</target>
 
 
@@ -147,6 +162,18 @@
 		<exec dir="${dir.base}" command="php">
 			<arg value="sgallery.php"/>
 			<arg value="update"/>
+		</exec>
+	</target>
+
+
+
+	<!--
+		trys to install composer locally using composer's install script
+	-->
+	<target name="-install-composer" unless="composer.present">
+		<exec executable="php" failonerror="true">
+			<arg value="-r" />
+			<arg value="eval('?>'.file_get_contents('https://getcomposer.org/installer'));" />
 		</exec>
 	</target>
 
