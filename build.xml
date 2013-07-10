@@ -11,10 +11,13 @@
 	<property name="cmd.recess" value="recess" />
 	<property name="cmd.php" value="php" />
 	<property name="cmd.ant" value="ant" />
+	<property name="cmd.composer" value="${dir.base}/composer.phar" />
 
 	<!-- scp or ftp -->
 	<property name="use.scp" value="true" />
 	<property name="use.ftp" value="false" />
+
+	<available file="${cmd.composer}" property="composer.present" />
 
 	<!-- Deployment properties:
 		deploy.target
@@ -150,6 +153,18 @@
 		</delete>
 	</target>
 
+	<target name="validate" 
+		description="Validates project."
+		depends="-install-composer"
+	>
+		<!-- get dependencies -->
+		<exec executable="php" failonerror="true">
+			<arg line="${cmd.composer}" />
+			<arg line="update" />
+			<arg line="--no-dev" />
+		</exec>
+	</target>
+
 
 
 	<!--
@@ -244,6 +259,18 @@
 		<exec dir="${dir.base}" command="php">
 			<arg value="sgallery.php"/>
 			<arg value="update"/>
+		</exec>
+	</target>
+
+
+
+	<!--
+		trys to install composer locally using composer's install script
+	-->
+	<target name="-install-composer" unless="composer.present">
+		<exec executable="php" failonerror="true">
+			<arg value="-r" />
+			<arg value="eval('?>'.file_get_contents('https://getcomposer.org/installer'));" />
 		</exec>
 	</target>
 
