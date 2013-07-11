@@ -2,7 +2,11 @@
 .gallery {
 	background: #E3E3E3 url("../gfx/gallery-bg4.png") repeat 0 0;
 	padding: 2*@gutter @gutter/2 0 0; // I smell some problems with IE :(
-	box-shadow: inset 5px -1px 4px rgba(0,0,0,0.3);
+	box-shadow: inset 5px 0px 7px rgba(0,0,0,0.5);
+}
+.gallery--ul {
+	padding: 0 0 20px 0;
+	margin: 0;
 }
 .gallery-item img {
 	box-shadow: 0px 0px 4px #000;
@@ -35,3 +39,52 @@
 	top: -20px;
 	box-shadow: 1px 2px 4px rgba(0,0,0, 0.8);
 }
+
+
+
+/* SGALLERY styles */
+img.photo-preview {
+	max-height: 100%;
+	max-width: 100%;
+	margin: auto;
+	-webkit-transition: 0.3s;
+	   -moz-transition: 0.3s;
+	        transition: 0.3s;
+}
+img.photo-preview.slide-out {
+	margin-left: -100%;
+}
+img.photo-preview.slide-in {
+	padding-left: 200%;
+}
+
+.photo {
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-transition: 0.2s;
+	   -moz-transition: 0.2s;
+	        transition: 0.2s;
+}
+
+.photo:hover {
+	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.photo-selected {
+	box-shadow: 0px 0px 16px rgba(0, 0, 156, 0.6);
+	border: 1px solid rgba(0, 0, 156, 0.5);
+}
+
+.modal-backdrop {
+	.modal-panel {
+		display: none;
+	}
+	.modal-panel.active {
+		display: block;
+	}
+}
+
