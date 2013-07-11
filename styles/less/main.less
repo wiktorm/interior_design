@@ -3,6 +3,20 @@
  */
 @reniasGreen: rgb(50,162,0);
 @lightGray: #e5e5e5;
+@white: #FFFFFF;
+
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+/* width of main container */
+@bodyWidth:  900px;
+/* Set the spacing between your grid items. */
+@gutter:  20px;
+
+/* screen sizes */
+@screenDesk: @bodyWidth + @gutter;
+@screenLap: 580px;
+@screenPalm: 320px;
 
 /**
  * Imports
@@ -11,6 +25,66 @@
 @import "page.less";
 @import "grid.less";
 @import "gallery.less";
+@import "modals.less";
 
 /* shame.css - http://csswizardry.com/2013/04/shame-css/ */
 @import "shame.less";
+
+
+/* MIXINS */
+
+// Opacity
+.opacity(@opacity) {
+	opacity: @opacity / 100;
+	filter: ~"alpha(opacity=@{opacity})";
+}
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+	        border-radius: @radius;
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}
+
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	   -moz-background-clip: @clip;
+	        background-clip: @clip;
+}
+
+
+// Transitions
+.transition(@transition) {
+	-webkit-transition: @transition;
+	   -moz-transition: @transition;
+	     -o-transition: @transition;
+	        transition: @transition;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.clearfix {
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
