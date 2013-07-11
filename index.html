@@ -37,7 +37,29 @@
 <body style="padding-top:80px">
 	<div class="topbar">
 		<div class="container">
-		<img class="logo" src="images/logo.png" />
+			<a href="/"><img class="logo" src="/images/logo.png" style="float: left; width: 300px" /></a>
+			<ul class="navigation" style="float: left; width: 500px">
+				<!--
+				<li><a class="navigation--link" href="#">Oferta</a></li>
+				 -->
+				<li><a class="navigation--link" href="/albums">Realizacje</a></li>
+				<li><a class="navigation--link" href="#">Kontakt</a></li>
+				<!--
+				<li><a class="navigation--link" href="#">Inspiracje</a></li>
+				<li><a class="navigation--link" href="#">Referencje</a></li>
+				 -->
+			</ul>
+			<!--
+			<ul class="navigation navigation--sub" style="float: left; width: 500px">
+				{{#slugs}}
+				<li class="{{class}}">
+					{{# href }}<a class="navigation--link" href="/albums{{ href }}">{{/href}}
+						{{ text }}
+					{{# href }}</a> <span class="divider">/</span>{{/href}}
+				</li>
+				{{/slugs}}
+			</ul>
+			-->
 		</div>
 	</div>
 
@@ -88,17 +110,17 @@
 	<div class="footer" style="margin-top: 40px;">
 		<div class="container">
 			<div class="columns">
-				<div class="column_np one-third">
+				<div class="column one-third">
 
 				</div><!--
-				--><div class="column_np one-third">
+				--><div class="column one-third">
 
 				</div><!--
-				--><div class="column_np one-third" style="text-align: right;">
+				--><div class="column one-third" style="text-align: right; padding-bottom: 5px;">
 					<p>
 						mgr inż. arch. <span class="name">Renata Kowalczuk</span><br />
 						telefon: <strong>512 149 366</strong><br />
-						email: <!--<a href="mailto:info@renata-kowalczuk.eu">-->info@renata-kowalczuk.eu<!--</a>-->
+						email: info@renata-kowalczuk.eu
 					</p>
 				</div>
 			</div>

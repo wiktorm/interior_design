@@ -153,12 +153,12 @@
 		</delete>
 	</target>
 
-	<target name="validate" 
+	<target name="validate"
 		description="Validates project."
 		depends="-install-composer"
 	>
 		<!-- get dependencies -->
-		<exec executable="php" failonerror="true">
+		<exec executable="${cmd.php}" failonerror="true">
 			<arg line="${cmd.composer}" />
 			<arg line="update" />
 			<arg line="--no-dev" />
@@ -245,6 +245,7 @@
 	</target>
 
 	<target name="build.html.assets">
+		<echo level="info">Copying assets to build folder.</echo>
 		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
 				<include name="images/index/*" />
@@ -256,7 +257,7 @@
 	</target>
 
 	<target name="build.html.gallery">
-		<exec dir="${dir.base}" command="php">
+		<exec dir="${dir.base}" command="${cmd.php}">
 			<arg value="sgallery.php"/>
 			<arg value="update"/>
 		</exec>
@@ -268,7 +269,7 @@
 		trys to install composer locally using composer's install script
 	-->
 	<target name="-install-composer" unless="composer.present">
-		<exec executable="php" failonerror="true">
+		<exec executable="${cmd.php}" failonerror="true">
 			<arg value="-r" />
 			<arg value="eval('?>'.file_get_contents('https://getcomposer.org/installer'));" />
 		</exec>
