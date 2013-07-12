@@ -250,6 +250,7 @@
 			<fileset dir="${dir.base}">
 				<include name="images/index/*" />
 				<include name="images/logo.png" />
+				<include name="images/realizacje/**/*.jpg" />
 				<include name="favicon.ico" />
 				<include name=".htaccess" />
 			</fileset>
