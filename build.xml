@@ -236,6 +236,7 @@
 			<fileset dir="${dir.base}">
 				<include name="index.html" />
 				<include name="contact.html" />
+				<include name="offer.html" />
 			</fileset>
 		</copy>
 
@@ -246,6 +247,10 @@
 		<exec executable="${cmd.php}">
 			<arg line="src/build-html.php" />
 			<arg line="${dir.build.out}/contact.html" />
+		</exec>
+		<exec executable="${cmd.php}">
+			<arg line="src/build-html.php" />
+			<arg line="${dir.build.out}/offer.html" />
 		</exec>
 	</target>
 
