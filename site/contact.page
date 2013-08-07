@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<component name="page" template="production">
+	<data>
+		<title></title>
+		<keywords></keywords>
+		<description></description>
+	</data>
+	
+	<component name="topbar">
+		<data>
+			<nav>
+				<item href="/offer.html">Oferta</item>
+				<item href="/albums">Realizacje</item>
+				<item href="/contact.html">Kontakt</item>
+			</nav>
+		</data>
+	</component>
+
+	<component name="container" template="columns">
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Projektowanie Wnętrz - Wrocław
+
+mgr inż. arch. Renata Kowalczuk  
+telefon: **+48 512 149 366**  
+email: <a href="mailto:info@renata-kowalczuk.eu">info@renata-kowalczuk.eu</a>  
+adres: ul. Rymarska 47/23, 53-206 Wrocław
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="container" template="columns">
+		<data><style>container--full-width</style></data>
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=51.080187,16.988874&amp;aq=&amp;sll=51.127065,16.991864&amp;sspn=0.244339,0.676346&amp;t=m&amp;ie=UTF8&amp;ll=51.085787,16.992073&amp;spn=0.01887,0.036478&amp;z=14&amp;output=embed"></iframe>
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="footer" />
+	<component name="google-analytics">
+		<data>
+			<enabled>1</enabled>
+			<account>UA-42335134-1</account>
+			<domain>renata-kowalczuk.eu</domain>
+		</data>
+	</component>
+
+</component>

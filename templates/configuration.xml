@@ -1,0 +1,45 @@
+<templates>
+
+	<!-- LAYOUTS -->
+	<component name="page"
+		template="production.xsl"
+		folder="layouts/page"
+	/>
+	<component name="topbar"
+		template="default.xsl"
+		folder="layouts/topbar"
+	/>
+	<component name="footer"
+		template="default.xsl"
+		folder="layouts/footer"
+	/>
+
+
+
+
+
+	<!-- BODY -->
+	<component name="gallery"
+		template="default.xsl"
+		folder="components/gallery"
+	/>
+	<component name="container"
+		template="default.xsl"
+		folder="components/container"
+	/>
+	<component name="content"
+		template="default.xsl"
+		folder="components/content"
+	/>
+
+
+
+
+
+	<!-- GOOGLE -->
+	<component name="google-analytics"
+		template="default.xsl"
+		folder="google/analytics"
+	/>
+
+</templates>

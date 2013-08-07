@@ -12,12 +12,14 @@
 	<property name="cmd.php" value="php" />
 	<property name="cmd.ant" value="ant" />
 	<property name="cmd.composer" value="${dir.base}/composer.phar" />
+	<property name="cmd.displayService" value="${dir.base}/displayService.phar" />
 
 	<!-- scp or ftp -->
 	<property name="use.scp" value="true" />
 	<property name="use.ftp" value="false" />
 
 	<available file="${cmd.composer}" property="composer.present" />
+	<available file="${cmd.displayService}" property="displayService.present" />
 
 	<!-- Deployment properties:
 		deploy.target
@@ -156,7 +158,7 @@
 
 	<target name="validate"
 		description="Validates project."
-		depends="-install-composer"
+		depends="-install-composer, -install-displayService"
 	>
 		<!-- get dependencies -->
 		<exec executable="${cmd.php}" failonerror="true">
@@ -232,6 +234,16 @@
 	-->
 
 	<target name="build.html">
+		
+		<exec executable="php">
+			<env key="DS_HOSTDIR" value="${dir.base}" />
+			<arg line="${cmd.displayService}" />
+			<arg line="ds:generate" />
+			<arg line="--source='/'" />
+			<arg line="--output='${dir.build.out}'" />
+		</exec>
+		
+		<!--
 		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
 				<include name="index.html" />
@@ -252,6 +264,7 @@
 			<arg line="src/build-html.php" />
 			<arg line="${dir.build.out}/offer.html" />
 		</exec>
+		-->
 	</target>
 
 	<target name="build.html.assets"
@@ -285,6 +298,8 @@
 
 
 
+
+
 	<!--
 		trys to install composer locally using composer's install script
 	-->
@@ -294,6 +309,14 @@
 			<arg value="eval('?>'.file_get_contents('https://getcomposer.org/installer'));" />
 		</exec>
 	</target>
+
+	<target name="-install-displayService" unless="displayService.present">
+		<get src="http://get.hoborglabs.com/displayService.phar" dest="${cmd.displayService}"/>
+	</target>
+
+
+
+
 
 	<!-- Help Message -->
 	<target name="help"
