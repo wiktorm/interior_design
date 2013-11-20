@@ -20,7 +20,7 @@
 	</xsl:template>
 
 	<xsl:template match="item">
-		<li><a class="navigation--link" href="{@href}"><xsl:value-of select="." /></a></li>
+		<li><a class="navigation--link {@style}" href="{@href}"><xsl:value-of select="." /></a></li>
 	</xsl:template>
 
 </xsl:stylesheet>

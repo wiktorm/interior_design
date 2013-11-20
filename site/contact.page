@@ -11,7 +11,7 @@
 			<nav>
 				<item href="/offer.html">Oferta</item>
 				<item href="/albums">Realizacje</item>
-				<item href="/contact.html">Kontakt</item>
+				<item href="/contact.html" style="navigation--active">Kontakt</item>
 			</nav>
 		</data>
 	</component>

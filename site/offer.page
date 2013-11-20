@@ -9,7 +9,7 @@
 	<component name="topbar">
 		<data>
 			<nav>
-				<item href="/offer.html" active="active">Oferta</item>
+				<item href="/offer.html" style="navigation--active">Oferta</item>
 				<item href="/albums">Realizacje</item>
 				<item href="/contact.html">Kontakt</item>
 			</nav>
