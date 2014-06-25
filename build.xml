@@ -8,7 +8,7 @@
 	<property name="dir.build" location="${dir.base}/build" />
 	<property name="dir.build.out" location="${dir.build}/out" />
 
-	<property name="cmd.recess" value="recess" />
+	<property name="cmd.recess" value="${dir.base}/node_modules/.bin/recess" />
 	<property name="cmd.php" value="php" />
 	<property name="cmd.ant" value="ant" />
 	<property name="cmd.composer" value="${dir.base}/composer.phar" />
@@ -20,6 +20,7 @@
 
 	<available file="${cmd.composer}" property="composer.present" />
 	<available file="${cmd.displayService}" property="displayService.present" />
+	<available file="${cmd.recess}" property="recess.present" />
 
 	<!-- Deployment properties:
 		deploy.target
@@ -158,7 +159,7 @@
 
 	<target name="validate"
 		description="Validates project."
-		depends="-install-composer, -install-displayService"
+		depends="-install-composer, -install-displayService, -install-recess"
 	>
 		<!-- get dependencies -->
 		<exec executable="${cmd.php}" failonerror="true">
@@ -180,7 +181,7 @@
 
 	<!-- Compressed, production ready CSS -->
 	<target name="build.css.compress"
-		depends="build.css.gfx"
+		depends="-install-recess, build.css.gfx"
 		description="Builds CSS file(s) and copy assets."
 	>
 		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
@@ -192,7 +193,7 @@
 	</target>
 
 	<target name="build.css.compile"
-		depends="build.css.gfx"
+		depends="-install-recess, build.css.gfx"
 		description="Builds CSS file(s) and copy assets."
 	>
 		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
@@ -217,6 +218,7 @@
 	</target>
 
 	<target name="build.css.watch"
+		depends="-install-recess"
 		description="Prints command to run for watching CSS changes."
 	>
 		<echo>To watch CSS run following command</echo>
@@ -234,7 +236,8 @@
 	-->
 
 	<target name="build.html">
-		
+
+		<mkdir dir="${dir.build.out}" />
 		<exec executable="php">
 			<env key="DS_HOSTDIR" value="${dir.base}" />
 			<arg line="${cmd.displayService}" />
@@ -242,7 +245,7 @@
 			<arg line="--source='/'" />
 			<arg line="--output='${dir.build.out}'" />
 		</exec>
-		
+
 		<!--
 		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
@@ -280,7 +283,7 @@
 			</fileset>
 		</copy>
 	</target>
-	
+
 	<target name="build.html.assets.images" if="${deploy.images}">
 		<copy todir="${dir.build.out}">
 			<fileset dir="${dir.base}">
@@ -312,6 +315,14 @@
 
 	<target name="-install-displayService" unless="displayService.present">
 		<get src="http://get.hoborglabs.com/displayService.phar" dest="${cmd.displayService}"/>
+	</target>
+
+	<target name="-install-recess" unless="recess.present">
+		<exec executable="npm">
+			<arg value="install" />
+			<arg value="recess" />
+		</exec>
+		<property name="cmd.recess" value="${dir.base}/node_modules/.bin/recess" />
 	</target>
 
 
