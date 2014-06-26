@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:php="http://php.net/xsl"
 	exclude-result-prefixes="php"
 >
@@ -9,8 +9,12 @@
 	<xsl:template match="/component">
 		<div class="topbar">
 			<div class="container">
-				<a href="/"><img class="logo" src="/images/logo.png" style="float: left; width: 300px" /></a>
-				<ul class="navigation" style="float: right; width: 500px; margin-top: 40px; margin-right: 10px; text-align: right;">
+				<h1 class="brand"><a href="/" title="Studio Projektowe Renata Kowalczuk" /></h1>
+			</div>
+		</div>
+		<div class="topbar--navigation">
+			<div class="container">
+				<ul class="navigation">
 					<xsl:apply-templates select="data/nav/item"></xsl:apply-templates>
 				</ul>
 				<ul class="navigation navigation-sub" style="float: left; width: 500px">

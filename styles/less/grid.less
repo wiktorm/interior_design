@@ -12,7 +12,7 @@
 
 /**
  * Set the spacing between your grid items.
- */ 
+ */
 .columns {
 	list-style: none; /* [1] */
 	margin: 0; /* [2] */
@@ -36,7 +36,7 @@
 	background-color: #FFF;
 	/* min-height: 120px; */
 	overflow: hidden;
-	
+
 	/* animation */
 	-webkit-transition: 0.46s;
 	   -moz-transition: 0.46s;
@@ -44,7 +44,7 @@
 	margin: 20px 10px 10px 10px;
 	padding: 0;
 	border: 5px #FFF solid;
-	
+
 	.extras {
 		opacity: 0.3;
 		/* animation */
@@ -70,7 +70,7 @@
 	padding: 0px 0px @gutter @gutter; /* Space columns apart. */
 	vertical-align: top; /* Align columns to the tops of each other. */
 	width: 100%; /* Full-width unless told to behave otherwise. */
-	
+
 	/* Required to combine fluid widths and fixed gutters. */
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -102,7 +102,10 @@
 
 @media (max-width: @screenDesk) {
 	.container {
-		width: @screenLap;
+		width: 95%;
+	}
+	.container--full-width {
+		width: 100%;
 	}
 	.columns {
 	}
@@ -121,12 +124,15 @@
 	.container {
 		width: 90%;
 	}
+	.container--full-width {
+		width: 100%;
+	}
 	.columns {
 		width: 100%;
 	}
 	.thumb {
 		width: 100%;
-		
+
 		img {
 			width: 100%;
 		}

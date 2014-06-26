@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <component name="page" template="production">
 	<data>
-		<title></title>
-		<keywords></keywords>
+		<title>Projektowanie Wnętrz - Renata Kowalczuk</title>
+		<keywords>Projektowanie Wnętrz, Wrocław, Renata Kowalczuk</keywords>
 		<description></description>
 	</data>
-	
+
 	<component name="topbar">
 		<data>
 			<nav>
@@ -23,9 +23,9 @@
 				<markdown><![CDATA[
 ## Projektowanie Wnętrz - Wrocław
 
-mgr inż. arch. Renata Kowalczuk  
-telefon: **+48 512 149 366**  
-email: <a href="mailto:info@renata-kowalczuk.eu">info@renata-kowalczuk.eu</a>  
+mgr inż. arch. Renata Kowalczuk<br />
+telefon: **+48 512 149 366**<br />
+email: <a href="mailto:info@renata-kowalczuk.eu">info@renata-kowalczuk.eu</a><br />
 adres: ul. Rymarska 47/23, 53-206 Wrocław
 				]]></markdown>
 			</data>
@@ -38,7 +38,7 @@ adres: ul. Rymarska 47/23, 53-206 Wrocław
 			<data>
 				<size></size>
 				<markdown><![CDATA[
-<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=51.080187,16.988874&amp;aq=&amp;sll=51.127065,16.991864&amp;sspn=0.244339,0.676346&amp;t=m&amp;ie=UTF8&amp;ll=51.085787,16.992073&amp;spn=0.01887,0.036478&amp;z=14&amp;output=embed"></iframe>
+<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10025.968767893884!2d16.9917513!3d51.0809235!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc22dd63c692d%3A0x9c31f8873481e3e8!2sRymarska+47!5e0!3m2!1spl!2s!4v1403714185078"></iframe>
 				]]></markdown>
 			</data>
 		</component>
