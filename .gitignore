@@ -6,6 +6,7 @@
 /.settings
 *.swp
 *~
+.DS_Store
 
 
 
