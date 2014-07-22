@@ -238,7 +238,7 @@
 	<target name="build.html">
 
 		<mkdir dir="${dir.build.out}" />
-		<exec executable="php">
+		<exec executable="${cmd.php}">
 			<env key="DS_HOSTDIR" value="${dir.base}" />
 			<arg line="${cmd.displayService}" />
 			<arg line="ds:generate" />
