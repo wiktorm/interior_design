@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<component name="page" template="production">
+	<data>
+		<title></title>
+		<keywords></keywords>
+		<description></description>
+	</data>
+	
+	<component name="topbar">
+		<data>
+			<nav>
+				<item href="/offer.html">Oferta</item>
+				<item href="/albums">Realizacje</item>
+				<item href="/contact.html">Kontakt</item>
+			</nav>
+		</data>
+	</component>
+
+	<component name="gallery">
+		<data>
+			<image src="images/index/1.jpg">
+				<link>/albums/kuchnia04/</link>
+				<caption><![CDATA[Wnętrza <b>klasyczne</b>]]></caption>
+			</image>
+			<image src="images/index/2.jpg">
+				<limk>/albums/kuchnia07/</limk>
+				<caption><![CDATA[Wnętrza <b>stylizowane</b>]]></caption>
+			</image>
+			<image src="images/index/3.jpg">
+				<link>/albums/lazienka01/</link>
+				<caption><![CDATA[Wnętrza <b>nowoczesne</b>]]></caption>
+			</image>
+		</data>
+	</component>
+
+	<component name="container" template="columns">
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Projektowanie Wnętrz
+
+Myślę i główkuję. Poszukuję i ćwiczę wyobraźnię. Efektem mają być przyjazne biura na miarę XXI wieku, kuchnie w
+najlepszym smaku, salony łazienkowe, relaksacyjne i przebojowe pokoje, salony kosmetyczne, sklepy, gabinety,
+przedszkola. Ograniczeniem może być tylko grawitacja i kubatura pomieszczenia. Resztą zajmie się wyobraźnia.
+				]]></markdown>
+			</data>
+		</component>
+
+		<component name="content">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Nowość! Projekty na odległość
+
+Istnieje możliwość opracowania projektu dla Inwestora bez konieczności przeprowadzania spotkań w biurze. Sytuacja taka
+zdarza się gdy Inwestor dużo podróżuje albo czasu spędzanego we Wrocławiu nie może przeznaczyć na tematy związane z 
+projektem i wykończeniem lub gdy Inwestor mieszka daleko i chce przygotować mieszkanie/lokal użytkowy do przeprowadzki.
+Ustalenia mogą odbywać się podczas wideokonferencji. Prezentacja projektu wygląda podobnie jak na spotkaniu (pełna 
+prezentacja modelu 3D, wraz z jego obrotami i przemieszczaniem się obserwatora; omówienie i prezentacja rysunków 
+technicznych). Niepotrzebna jest znajomość obsługi programów graficznych, wystarczy jedynie podłączenie do Internetu.
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="footer" />
+	<component name="google-analytics">
+		<data>
+			<enabled>1</enabled>
+			<account>UA-42335134-1</account>
+			<domain>renata-kowalczuk.eu</domain>
+		</data>
+	</component>
+
+</component>

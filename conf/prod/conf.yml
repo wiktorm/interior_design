@@ -1,0 +1,7 @@
+##
+# PRODUCTION configuration
+# 
+# override anything that is not defined in main config.yml
+
+imports:
+  - { resource: ./../config.yml }

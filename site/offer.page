@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<component name="page" template="production">
+	<data>
+		<title></title>
+		<keywords></keywords>
+		<description></description>
+	</data>
+	
+	<component name="topbar">
+		<data>
+			<nav>
+				<item href="/offer.html" style="navigation--active">Oferta</item>
+				<item href="/albums">Realizacje</item>
+				<item href="/contact.html">Kontakt</item>
+			</nav>
+		</data>
+	</component>
+
+	<component name="container" template="columns">
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+# Oferta
+
+Projektowanie wnętrz jest autorskim opracowaniem ułatwiającym i usprawniającym ich wykończenie, podnoszącym estetykę 
+oraz dającym poczucie, że są one dobrze dopasowanego do indywidualnych potrzeb swoich użytkowników.
+
+### Wnętrza, które chcą być zaprojektowane:
+
+* domy i mieszkania (począwszy od stanu deweloperskiego),
+* biura,
+* salony kosmetyczne i fryzjerskie,
+* gabinety lekarskie i dentystyczne,
+* restauracje - sale konsumpcyjne,
+* hotele i pensjonaty,
+* kawiarnie,
+* recepcje,
+* salony sprzedaży, sklepy, apteki,
+* przedszkola,
+* sale konferencyjne,
+* stoiska wystawiennicze i handlowe,
+* sale sportowe i rekreacyjne,
+* spa.
+
+				]]></markdown>
+			</data>
+		</component>
+		
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+# Zakres usług
+
+## Inwentaryzacja
+
+Inwentaryzacja budowlana jest szczegółowym odwzorowaniem stanu istniejącego budynku/wnętrza w postaci dokumentacji 
+papierowej i/lub elektronicznej stanowiącym podkład do dalszych prac projektowych. Polega na wykonaniu rysunków i 
+opisu istniejącego stanu obiektu lub jego części na podstawie aktualnych pomiarów. Dodatkowo inwentaryzacja może 
+zawierać bryłę 3D mierzonego obiektu. Jest niezbędna do wykonania projektu wnętrz gdy brakuje dokładnego rzutu lokalu 
+oraz konieczna do projektu indywidualnej zabudowy meblowej. Wykonana dokumentacja wydawana jest w formie papierowej 
+(ilość egzemplarzy do uzgodnienia) oraz w formie elektronicznej (format DWG, PDF, JPG).
+
+Rozszerzona dokumentacja inwentaryzacyjna wnętrza zawiera dodatkowo zdjęcia. Fotografie obrazują szczegółowo stan 
+obiektu przed przebudową lub remontem. Taka dokumentacja jest niezbędna do szczegółowej analizy projektu, planowania 
+remontów, planowania wystroju i adaptacji, określania stanu technicznego obiektu (ściany, wymalowania, uszkodzenia 
+itp.), a także dla celów archiwalnych, do udokumentowania stanu robót czy stanu faktycznego przed sprzedażą, wynajmem 
+lub wykończeniem lokalu i budynku (przed rozpoczęciem inwestycji). Ujęcia wykonywane są we wnętrzu z kilku kierunków, 
+obejmują wszystkie przegrody budowlane i  pokazują rzeczywisty charakter istniejącego oświetlenia i ewentualny nastrój 
+panujący w tym pomieszczeniu.
+				]]></markdown>
+			</data>
+		</component>
+		
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Projekt wnętrz
+
+
+
+
+### Od projektu koncepcyjnego
+
+Jest to opracowanie przedstawiające pomysł na wnętrze z uwzględnieniem istniejących uwarunkowań i indywidualnych 
+potrzeb użytkownika przestrzeni. Zaczyna się od rozpoznania wnętrza (wizyta na budowie) i poznania oczekiwań Inwestora. 
+Efektem są koncepcje projektowe, które następnie są omawiane, tak aby ostatecznie wybrać jedno rozwiązanie. Ten etap 
+jest niezwykle istotny, gdyż wymaga bardzo indywidualnego podejścia do potrzeb estetycznych użytkownika/użytkowników. 
+Ostateczna koncepcja zazwyczaj klaruje się po kilku spotkaniach i rozmowach.
+
+Opracowanie składa się z rzutów układu funkcjonalno-przestrzennego oraz modelu przestrzennego (3D) wraz z elementami 
+wystroju wnętrz - projektowanych zmian w zabudowie suchej (płyty gk) ścian i sufitów, wyposażeniem w meble i urządzenia 
+sanitarne.
+
+
+
+
+### Uszczegółowianie koncepcji
+
+Gdy ogólny wygląd bryłowy wnętrza zostanie ustalony wprowadzane są kolejne niezbędne informacje - kolory i materiały. 
+Służą temu wizyty w sklepach. Wybierane są posadzki, armatura sanitarna, drzwi wewnętrzne, wykończenia ścian, a w 
+kolejnym etapie następuje wybór mebli, opraw oświetleniowych i wyposażenia dekoracyjnego (okien - zasłony, rolety; 
+podłóg - wykładziny, dywany).
+
+
+
+
+### Projekt wykonawczy
+
+Po ustaleniu jak ma wyglądać wnętrze, należy przygotować rysunki na budowę, aby wykonawcy mogli urzeczywistnić 
+narysowane marzenia. Projekt wykonawczy wydawany jest w języku zrozumiałym przez ekipy budowlane czyli w formie 
+zwymiarowanych rysunków technicznych wraz z niezbędnym opisem. Są to rzuty podłóg i sufitów (jeżeli projekt przewiduje 
+zmiany), niezbędne widoki ścian, widoki perspektywiczne lub aksonometryczne. Na podstawie tak przygotowanej 
+dokumentacji pracownicy wykonają, bez zbędnych pytań do Inwestora, prace w następującym zakresie:
+
+* zabudowa sucha (z płyt gk) ścianek, sufitów, wnęk- usunięcie i/lub postawienie nowych,
+* wewnętrzna instalacja elektryczna i wodno-kanalizacyjna,
+* wykonają posadzki i ściany o prawidłowym układzie elementów (kierunki układania desek, płytek, zestawienie materiałów),
+* pomalują odpowiednie ściany w odpowiednim kolorze.
+
+				]]></markdown>
+			</data>
+		</component>
+		
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Projekty indywidualnej zabudowy meblowej
+
+Zwykle do pełnego wykończenia wnętrza potrzebny jest indywidualny projekt mebli, dotyczy to szczególnie szaf i mebli 
+kuchennych, jak również biurowych, recepcyjnych, hotelowych, gabinetowych, handlowych. Projekt mebli na zamówienie 
+opracowywany jest najefektywniej przez autora projektu wnętrz (zgodność kompozycji), we współpracy z przedstawicielami 
+wykonawcy (szczegóły techniczne stosowanych rozwiązań). Rezultatem będzie dobry produkt, pasujący do wnętrza i wygodny 
+do korzystania przez docelowego użytkownika.
+				]]></markdown>
+			</data>
+		</component>
+		
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Nadzory autorskie, nadzory inwestorskie - koordynowanie prac wykończeniowych
+
+Aby zaoszczędzić czas Inwestora możliwe jest również wykonanie nadzoru o różnym zakresie - nadzoru autorskiego 
+(sprawdzenie zgodności wykonania z projektem) bądź nadzoru inwestorskiego (koordynowanie prac wykończeniowych - wizyty
+na budowie w celu dopilnowania poprawności wykonywanych prac na każdym etapie, konsultacje z wykonawcami i omówienie
+nietypowych rozwiązań projektowych, zgranie w czasie wykonania wszystkich elementów ujętych w projekcie). Nadzór 
+inwestorski zwalnia klienta z częstych wizyt na budowie. Realizacja przebiega sprawniej i zgodnie z projektem. Inwestor
+uczestniczy głównie w etapie projektowym, na etapie realizacji informowany jest o przebiegu prac (uszczegółowienie 
+przekazywanych informacji ustalane jest z Inwestorem).
+
+Dodatkowo w trakcie nadzoru inwestorskiego wykonywana jest dokumentacja fotograficzna (przebieg instalacji we wnętrzu) 
+ułatwiająca dokonanie zmian instalacji w przyszłości. Dokumentacja wydawana jest w formie fotografii cyfrowej obiektu 
+(format JPG) oraz rzutu z zaznaczeniem miejsc fotografowanych oraz lokalizacji fotografa.
+				]]></markdown>
+			</data>
+		</component>
+		
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Kompleksowa obsługa inwestycji
+
+Realizacja, wykonanie opracowanego projektu - współpraca z wykonawcami.
+				]]></markdown>
+			</data>
+		</component>
+
+		<component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+## Satysfakcja jest bezcenna! Projekt da się wycenić
+
+Jako, że projekt wnętrz nie jest produktem typowym, wycena takiej usługi też jest wyliczana indywidualnie w zależności
+od zakresu opracowania, powierzchni i funkcji pomieszczeń oraz terminu realizacji.
+
+Inwestor określa zakres usług - może to być jedynie projekt koncepcyjny, koncepcja uszczegółowiona, koncepcja wraz z 
+projektem wykonawczym lub usługa kompleksowa, gdzie Inwestor kontaktuje się tylko z projektantem, a ten zajmuję się 
+całą obsługą inwestycji (inwentaryzacja przedprojektowa, szczegółowy projekt koncepcyjny, wykonawczy, koordynowanie 
+prac w lokalu, nadzór, dokumentacja powykonawcza).
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="footer" />
+	<component name="google-analytics">
+		<data>
+			<enabled>1</enabled>
+			<account>UA-42335134-1</account>
+			<domain>renata-kowalczuk.eu</domain>
+		</data>
+	</component>
+
+</component>

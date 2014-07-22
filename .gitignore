@@ -1,24 +1,33 @@
+##
 # IDE ignore files.
+#
 /.buildpath
 /.project
 /.settings
 *.swp
 *~
 
+
+
 ##
+# 3rd parties
+#
 # Composer
 /composer.lock
 /composer.phar
 /composer.bat
 /vendor
+# Display Service
+/displayService.phar
+/conf/config.yml
+# sGallery
+/sgallery.properties
+
 
 
 ##
 # Build
+#
 build.properties
 /build
-
-
-## 
-# sGallery
-/sgallery.properties
+/node_modules
