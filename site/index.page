@@ -5,7 +5,7 @@
 		<keywords></keywords>
 		<description></description>
 	</data>
-	
+
 	<component name="topbar">
 		<data>
 			<nav>
@@ -23,7 +23,7 @@
 				<caption><![CDATA[Wnętrza <b>klasyczne</b>]]></caption>
 			</image>
 			<image src="images/index/2.jpg">
-				<limk>/albums/kuchnia07/</limk>
+				<link>/albums/kuchnia07/</link>
 				<caption><![CDATA[Wnętrza <b>stylizowane</b>]]></caption>
 			</image>
 			<image src="images/index/3.jpg">
@@ -54,10 +54,10 @@ przedszkola. Ograniczeniem może być tylko grawitacja i kubatura pomieszczenia.
 ## Nowość! Projekty na odległość
 
 Istnieje możliwość opracowania projektu dla Inwestora bez konieczności przeprowadzania spotkań w biurze. Sytuacja taka
-zdarza się gdy Inwestor dużo podróżuje albo czasu spędzanego we Wrocławiu nie może przeznaczyć na tematy związane z 
+zdarza się gdy Inwestor dużo podróżuje albo czasu spędzanego we Wrocławiu nie może przeznaczyć na tematy związane z
 projektem i wykończeniem lub gdy Inwestor mieszka daleko i chce przygotować mieszkanie/lokal użytkowy do przeprowadzki.
-Ustalenia mogą odbywać się podczas wideokonferencji. Prezentacja projektu wygląda podobnie jak na spotkaniu (pełna 
-prezentacja modelu 3D, wraz z jego obrotami i przemieszczaniem się obserwatora; omówienie i prezentacja rysunków 
+Ustalenia mogą odbywać się podczas wideokonferencji. Prezentacja projektu wygląda podobnie jak na spotkaniu (pełna
+prezentacja modelu 3D, wraz z jego obrotami i przemieszczaniem się obserwatora; omówienie i prezentacja rysunków
 technicznych). Niepotrzebna jest znajomość obsługi programów graficznych, wystarczy jedynie podłączenie do Internetu.
 				]]></markdown>
 			</data>
