@@ -29,6 +29,14 @@ email: <a href="mailto:info@renata-kowalczuk.eu">info@renata-kowalczuk.eu</a><br
 adres: ul. Rymarska 47/23, 53-206 Wrocław
 				]]></markdown>
 			</data>
+		</component><!--
+		--><component name="content" template="column">
+			<data>
+				<size></size>
+				<markdown><![CDATA[
+<!-- Facebook Badge START --><a href="https://www.facebook.com/studio.projektowe.renata.moskwa" target="_TOP" title="Studio Projektowe Renata Moskwa"><img src="https://badge.facebook.com/badge/1482907665285150.11100.1942820743.png" style="border: 0px;" /></a><!-- Facebook Badge END -->
+				]]></markdown>
+			</data>
 		</component>
 	</component>
 
