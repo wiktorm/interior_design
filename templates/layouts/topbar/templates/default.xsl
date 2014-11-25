@@ -9,7 +9,7 @@
 	<xsl:template match="/component">
 		<div class="topbar">
 			<div class="container">
-				<h1 class="brand"><a href="/" title="Studio Projektowe Renata Kowalczuk" /></h1>
+				<h1 class="brand"><a href="/" title="Studio Projektowe Renata Moskwa" /></h1>
 				<ul class="toplinks">
 					<li><a href="https://www.facebook.com/studio.projektowe.renata.moskwa"
 						target="_blank" rel="nofollow" title="Facebook"><img src="/images/icons/f.png" /></a></li>

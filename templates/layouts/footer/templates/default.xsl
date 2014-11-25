@@ -17,7 +17,7 @@
 					 --><div class="column two-thirds"></div><!--
 					--><div class="column one-third" style="text-align: right; padding-bottom: 5px;">
 						<p>
-							mgr inż. arch. <span class="name">Renata Kowalczuk</span><br />
+							mgr inż. arch. <span class="name">Renata Moskwa (Kowalczuk)</span><br />
 							telefon: <strong>512 149 366</strong><br />
 							email: info@renata-kowalczuk.eu
 						</p>
