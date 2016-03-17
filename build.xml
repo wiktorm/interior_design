@@ -296,6 +296,7 @@
 	<target name="build.html.gallery">
 		<exec dir="${dir.base}" command="${cmd.php}">
 			<arg value="sgallery.php"/>
+			<arg value="--config=sgallery.properties"/>
 			<arg value="update"/>
 		</exec>
 	</target>
