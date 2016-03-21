@@ -1,0 +1,342 @@
+<project name="Projektowanie Wnętrz - Renata Kowalczuk" default="help" basedir=".">
+
+	<!-- optional environmental settings -->
+	<property file="build.properties" />
+
+	<!-- setup default values -->
+	<property name="dir.base" location="." />
+	<property name="dir.build" location="${dir.base}/build" />
+	<property name="dir.build.out" location="${dir.build}/out" />
+
+	<property name="cmd.recess" value="${dir.base}/node_modules/.bin/recess" />
+	<property name="cmd.php" value="php.exe" />
+	<property name="cmd.ant" value="ant.bat" />
+	<property name="cmd.composer" value="${dir.base}/composer.phar" />
+	<property name="cmd.displayService" value="${dir.base}/displayService.phar" />
+
+	<!-- scp or ftp -->
+	<property name="use.scp" value="true" />
+	<property name="use.ftp" value="false" />
+
+	<available file="${cmd.composer}" property="composer.present" />
+	<available file="${cmd.displayService}" property="displayService.present" />
+	<available file="${cmd.recess}" property="recess.present" />
+
+	<!-- Deployment properties:
+		deploy.target
+		deploy.host
+		deploy.user
+		deploy.password
+	-->
+	<property name="deploy.images" value="true" />
+
+
+	<!--
+	Main targets:
+	 - build
+	 - deploy
+	 - clean
+	 - validate (todo)
+	-->
+
+	<target name="build"
+		description="Builds Website."
+		depends="clean"
+	>
+		<parallel>
+			<antcall target="build.css.compress" />
+			<antcall target="build.html" />
+			<antcall target="build.html.assets" />
+			<antcall target="build.html.gallery" />
+		</parallel>
+
+		<tar destfile="${dir.build}/renata-kowalczuk.eu.tgz"
+			basedir="${dir.build.out}"
+			compression="gzip"
+		/>
+	</target>
+
+	<target name="info"
+		description="Print information about deployment target"
+	>
+		<echo message="Will deploy to ${deploy.host}:${deploy.target}"/>
+	</target>
+
+	<target name="deploy"
+		description="Deploys the generated website to the remote server."
+		depends="deploy-scp,deploy-ftp"
+	/>
+
+	<target name="deploy-clean"
+		description="Cleans the remote server."
+		depends="deploy-clean-ftp"
+	/>
+
+	<target name="deploy-raw"
+		description="Deploys RAW website to the remote server."
+		depends="deploy-raw-ftp"
+	/>
+
+	<target name="deploy-scp" if="${use.scp}">
+		<scp file="${dir.out}/renata-kowalczuk.eu.tgz"
+			todir="${deploy.user}@${deploy.host}:${deploy.target}"
+			keyfile="${deploy.keyfile}"
+		/>
+		<sshexec host="${deploy.host}"
+			username="${deploy.user}"
+			keyfile="${deploy.keyfile}"
+			command="tar xzf ${deploy.target}/renata-kowalczuk.eu.tgz -C ${deploy.target}/public"
+		/>
+	</target>
+
+	<target name="deploy-ftp" if="${use.ftp}">
+		<echo message="Deployment to ${deploy.host}:${deploy.target}"/>
+		<ftp server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+			depends="yes"
+		>
+			<fileset dir="${dir.build.out}">
+				<include name="**"/>
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="deploy-clean-ftp" if="${use.ftp}">
+		<echo message="Cleaning ${deploy.host}:${deploy.target}"/>
+		<ftp action="del"
+			server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+		>
+			<fileset>
+				<include name="**"/>
+			</fileset>
+		</ftp>
+		<ftp action="rmdir"
+			server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+		>
+			<fileset>
+				<include name="**"/>
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="deploy-raw-ftp" if="${use.ftp}">
+		<echo message="RAW deployment to ${deploy.host}:${deploy.target}"/>
+		<ftp server="${deploy.host}"
+			remotedir="${deploy.target}"
+			userid="${deploy.user}"
+			password="${deploy.password}"
+			depends="yes"
+		>
+			<fileset dir=".">
+				<exclude name="build/**"/>
+				<exclude name="src/**"/>
+				<exclude name="legacy/**"/>
+				<include name="**/*.html"/>
+				<include name="**/*.js"/>
+				<include name="**/*.css"/>
+				<include name="**/*.less"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.png"/>
+				<include name="favicon.ico" />
+				<include name=".htaccess" />
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="clean">
+		<echo level="info">Cleaning build folder</echo>
+		<delete dir="${dir.build}">
+		</delete>
+	</target>
+
+	<target name="validate"
+		description="Validates project."
+		depends="-install-composer, -install-displayService, -install-recess"
+	>
+		<!-- get dependencies -->
+		<exec executable="${cmd.php}" failonerror="true">
+			<arg line="${cmd.composer}" />
+			<arg line="update" />
+			<arg line="--no-dev" />
+		</exec>
+	</target>
+
+
+
+	<!--
+	CSS targets
+	 - build.css.compress
+	 - build.css.compile (todo)
+	 - build.css.gfx
+	 - build.css.watch
+	-->
+
+	<!-- Compressed, production ready CSS -->
+	<target name="build.css.compress"
+		depends="-install-recess, build.css.gfx"
+		description="Builds CSS file(s) and copy assets."
+	>
+		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build.out}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build.out}/static/styles/css/main.css">
+			<arg line="--compress" />
+			<arg line="${dir.base}/styles/less/main.less" />
+		</exec>
+	</target>
+
+	<target name="build.css.compile"
+		depends="-install-recess, build.css.gfx"
+		description="Builds CSS file(s) and copy assets."
+	>
+		<echo level="info">Building ${dir.build.out}/static/styles/css/main.css</echo>
+		<mkdir dir="${dir.build.out}/static/styles/css/" />
+		<exec executable="${cmd.recess}" output="${dir.build.out}/static/styles/css/main.css">
+			<arg line="--compress" />
+			<arg line="${dir.base}/styles/less/main.less" />
+		</exec>
+	</target>
+
+	<target name="build.css.gfx"
+		description="Copy css assets to build folder"
+	>
+		<echo level="info">Copying CSS images assets to build folder.</echo>
+		<mkdir dir="${dir.build.out}/static/styles/gfx/" />
+		<copy todir="${dir.build.out}/static/styles/gfx/">
+			<fileset dir="${dir.base}/styles/gfx/">
+				<include name="**.png" />
+				<include name="**.gif" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.css.watch"
+		depends="-install-recess"
+		description="Prints command to run for watching CSS changes."
+	>
+		<echo>To watch CSS run following command</echo>
+		<echo>${cmd.recess} ${dir.base}/less/main.less:${dir.build.out}/static/styles/css/main.css --watch ${dir.base}/less/</echo>
+	</target>
+
+
+
+	<!--
+	HTML
+	 - build.html
+	           generate production HTML
+	 - build.html.assets
+	           copy all assets used on the page (images, PDFs, ...)
+	-->
+
+	<target name="build.html">
+
+		<mkdir dir="${dir.build.out}" />
+		<exec executable="${cmd.php}">
+			<env key="DS_HOSTDIR" value="${dir.base}" />
+			<arg line="${cmd.displayService}" />
+			<arg line="ds:generate" />
+			<arg line="--source='/'" />
+			<arg line="--output='${dir.build.out}'" />
+		</exec>
+
+		<!--
+		<copy todir="${dir.build.out}">
+			<fileset dir="${dir.base}">
+				<include name="index.html" />
+				<include name="contact.html" />
+				<include name="offer.html" />
+			</fileset>
+		</copy>
+
+		<exec executable="${cmd.php}">
+			<arg line="src/build-html.php" />
+			<arg line="${dir.build.out}/index.html" />
+		</exec>
+		<exec executable="${cmd.php}">
+			<arg line="src/build-html.php" />
+			<arg line="${dir.build.out}/contact.html" />
+		</exec>
+		<exec executable="${cmd.php}">
+			<arg line="src/build-html.php" />
+			<arg line="${dir.build.out}/offer.html" />
+		</exec>
+		-->
+	</target>
+
+	<target name="build.html.assets"
+		depends="build.html.assets.images"
+	>
+		<echo level="info">Copying assets to build folder.</echo>
+		<copy todir="${dir.build.out}">
+			<fileset dir="${dir.base}">
+				<include name="images/icons/*" />
+				<include name="images/index/*" />
+				<include name="images/logo*.png" />
+				<include name="favicon.ico" />
+				<include name=".htaccess" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.html.assets.images" if="${deploy.images}">
+		<copy todir="${dir.build.out}">
+			<fileset dir="${dir.base}">
+				<include name="images/realizacje/**/*.jpg" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.html.gallery">
+		<exec dir="${dir.base}" command="${cmd.php}">
+			<arg value="sgallery.php"/>
+			<arg value="--config=sgallery.properties"/>
+			<arg value="update"/>
+		</exec>
+	</target>
+
+
+
+
+
+	<!--
+		trys to install composer locally using composer's install script
+	-->
+	<target name="-install-composer" unless="composer.present">
+		<exec executable="${cmd.php}" failonerror="true">
+			<arg value="-r" />
+			<arg value="eval('?>'.file_get_contents('http://getcomposer.org/installer'));" />
+		</exec>
+	</target>
+
+	<target name="-install-displayService" unless="displayService.present">
+		<get src="http://get.hoborglabs.com/displayService.phar" dest="${cmd.displayService}"/>
+	</target>
+
+	<target name="-install-recess" unless="recess.present">
+		<exec executable="npm.cmd">
+			<arg value="install" />
+			<arg value="recess" />
+		</exec>
+		<property name="cmd.recess" value="${dir.base}/node_modules/.bin/recess" />
+	</target>
+
+
+
+
+
+	<!-- Help Message -->
+	<target name="help"
+		description="Prints help"
+	>
+		<exec executable="${cmd.ant}">
+			<arg value="-p" />
+		</exec>
+	</target>
+</project>
